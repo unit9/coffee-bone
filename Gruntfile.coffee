@@ -50,9 +50,7 @@ module.exports = (grunt) ->
                 files: 
                     '<%= paths.release.r %>': ['<%= paths.source.r %>']
 
-            vendors: 
-                    banner: '/*! <%= pkg.name %> | <%= pkg.author %> - VENDORS - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */'
-                    separator : '\n\n'
+            vendors:
                 files: 
                     '<%= paths.release.vmin %>': ['<%= paths.release.v %>']
 
