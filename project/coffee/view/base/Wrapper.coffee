@@ -20,8 +20,8 @@ class Wrapper extends AbstractView
 
 		super()
 
-		# only add "page" views to DOM, the rest can be added when required
-		@addClasses()
+		# decide if you want to add all core DOM up front, or add only when required, see comments in AbstractViewPage.coffee
+		# @addClasses()
 
 		return null
 

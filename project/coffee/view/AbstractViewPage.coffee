@@ -11,7 +11,7 @@ class AbstractViewPage extends AbstractView
 		###
 		CHANGE HERE - 'page' views are always in DOM - to save having to re-initialise gmap events (PITA). No longer require :dispose method
 		###
-		# @__NAMESPACE__().appView.wrapper.addChild @
+		@__NAMESPACE__().appView.wrapper.addChild @
 		@callChildrenAndSelf 'setListeners', 'on'
 
 		### replace with some proper transition if we can ###
@@ -28,9 +28,9 @@ class AbstractViewPage extends AbstractView
 		###
 		CHANGE HERE - 'page' views are always in DOM - to save having to re-initialise gmap events (PITA). No longer require :dispose method
 		###
-		# @__NAMESPACE__().appView.wrapper.remove @
+		@__NAMESPACE__().appView.wrapper.remove @
 
-		@callChildrenAndSelf 'setListeners', 'off'
+		# @callChildrenAndSelf 'setListeners', 'off'
 
 		### replace with some proper transition if we can ###
 		@$el.css 'visibility' : 'hidden'
@@ -38,11 +38,11 @@ class AbstractViewPage extends AbstractView
 
 		null
 
-	# dispose : =>
+	dispose : =>
 
-	# 	@callChildrenAndSelf 'setListeners', 'off'
+		@callChildrenAndSelf 'setListeners', 'off'
 
-	# 	null
+		null
 
 	setListeners : (setting) =>
 
