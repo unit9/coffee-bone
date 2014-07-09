@@ -43,26 +43,14 @@ module.exports = (grunt) ->
         # uglify
         uglify: 
             coffee: 
-                options: 
-                    sourceMap        : "<%= paths.map.build %>"
-                    sourceMappingURL : "<%= paths.map.build_url %>"
-                    sourceMapPrefix : 2
                 files: 
                     '<%= paths.release.js %>': ['<%= paths.source.js %>']
 
             require: 
-                options: 
-                    sourceMap     : '<%= paths.map.r %>'
-                    sourceMappingURL : "<%= paths.map.r_url %>"
-                    sourceMapPrefix : 2
                 files: 
                     '<%= paths.release.r %>': ['<%= paths.source.r %>']
 
             vendors: 
-                options: 
-                    sourceMap     : '<%= paths.map.v %>'
-                    sourceMappingURL : "<%= paths.map.v_url %>"
-                    sourceMapPrefix : 2
                     banner: '/*! <%= pkg.name %> | <%= pkg.author %> - VENDORS - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */'
                     separator : '\n\n'
                 files: 
