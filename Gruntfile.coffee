@@ -16,7 +16,6 @@ module.exports = (grunt) ->
                 css     : pkg.folders.src + "/sass"
                 toMerge : pkg.folders.bin + "/js/vendor/merged"
                 r       : pkg.folders.bin + "/js/r.js"
-                cms_r   : pkg.folders.bin + "/cms/js/r.js"
                 js      : pkg.folders.bin + "/js/main.js"
                 xml     : pkg.folders.bin + "/data/templates.xml"
                 svg     : pkg.folders.src + "/svg/ss-icons"
