@@ -49,6 +49,6 @@ walker.on('file', function(root, stat, next) {
 walker.on('end', function() {
 
     console.log('all done -- ' + refs + ' namespace references updated to "' + name + '" in ' + files + ' files');
-    removeFile('./test.js');
+    removeFile('./install.js');
 
 });
