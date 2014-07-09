@@ -11,6 +11,7 @@ Although it technically works "out of the box" (*-ish*), really requires some co
 3. `$ npm install`
 4. `$ node install.js [APP NAMESPACE]` *optional - just namespaces app in all coffee files*
 5. `$ grunt`
+6. `$ grunt connect:keepalive`
 
 ### Grunt tasks
 

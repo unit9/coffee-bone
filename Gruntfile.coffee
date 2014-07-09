@@ -180,8 +180,14 @@ module.exports = (grunt) ->
         connect :
             server :
                 options :
-                    port : 1111
-                    base : "<%= paths.release.bin %>"
+                    port      : 1111
+                    base      : "<%= paths.release.bin %>"
+            keepalive :
+                options :
+                    port      : 1111
+                    keepalive : true
+                    open      : true
+                    base      : "<%= paths.release.bin %>"
 
     # Load tasks
     list = pkg.devDependencies
@@ -189,8 +195,8 @@ module.exports = (grunt) ->
 
     # Register tasks.
     grunt.registerTask "default", ["percolator:main", "removelogging", "sass:dist", "autoprefixer:build", "cmq", "cssmin:main", "concat:vendors", "uglify:require", "uglify:vendors", "uglify:coffee", "modernizr:main", "xmlmin:main"]
-    grunt.registerTask "w", ["connect", "percolator:main", "sass:dist", "autoprefixer:build", "xmlmin:main", "watch:main"]
-    grunt.registerTask "w:cs", ["connect", "percolator:main", "watch:cs"]
+    grunt.registerTask "w", ["connect:server", "percolator:main", "sass:dist", "autoprefixer:build", "xmlmin:main", "watch:main"]
+    grunt.registerTask "w:cs", ["connect:server", "percolator:main", "watch:cs"]
     grunt.registerTask "w:sass", ["sass:dist", "autoprefixer:build", "watch:sass"]
     grunt.registerTask "v", ["concat:vendors"]
     grunt.registerTask "vmin", ["concat:vendors", "uglify:vendors"]
