@@ -1,0 +1,43 @@
+{
+	"name" : "coffee-bone",
+	"version" : "0.0.1",
+	"description" : "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Grunt",
+	"main" : "Gruntfile.coffee",
+	"author" : "",
+	"license" : "BSD",
+	"folders" : {
+		"bin"    : "website",
+		"src"    : "project",
+		"static" : "static"
+	},
+	"repository" : {
+		"type" : "git",
+		"url"  : "https://github.com/neilcarpenter/coffee-bone"
+	},
+	"dependencies" : {
+		"grunt" : "~0.4.1"
+	},
+	"devDependencies" : {
+		"walk"                        : "~2.3.3",
+		"grunt-contrib-uglify"        : "~0.2.2",
+		"grunt-contrib-watch"         : "~0.4.4",
+		"grunt-contrib-coffee"        : "~0.8.2",
+		"grunt-contrib-clean"         : "~0.4.1",
+		"grunt-contrib-concat"        : "~0.3.0",
+		"grunt-contrib-connect"       : "~0.8.0",
+		"grunt-contrib-sass"          : "~0.5.0",
+		"grunt-contrib-cssmin"        : "~0.8.0",
+		"grunt-contrib-copy"          : "~0.4.1",
+		"grunt-modernizr"             : "~0.3.0",
+		"grunt-coffee-percolator-v2"  : "~0.2.2",
+		"grunt-autoprefixer"          : "~0.4.0",
+		"grunt-xmlmin"                : "~0.1.1",
+		"grunt-iconizr-php"           : "~0.1.1",
+		"grunt-combine-media-queries" : "~1.0.15",
+		"grunt-remove-logging"        : "~0.2.0",
+		"grunt-shell"                 : "~0.7.0"
+	},
+	"engines" : {
+		"node" : ">=0.8"
+	}
+}

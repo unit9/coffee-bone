@@ -1,0 +1,99 @@
+/*
+ * HELPERS / MIXINS / LIBS / RESETS
+ */
+
+@import 'utils/easing';
+@import 'utils/mixins';
+@import 'utils/normalise';
+@import 'utils/helpers';
+
+/*
+ * VARIABLES
+ */
+
+@import 'globals.scss';
+
+/*
+ * ICONS
+ */
+
+@import 'icons.scss';
+
+/*
+ * FONTS
+ */
+
+@import 'fonts.scss';
+
+/*
+ * VENDORS
+ */
+
+/*
+ * CORE
+ */
+
+@import 'core/core';
+
+
+
+
+
+
+
+
+/*
+ *
+ *
+ *
+ *
+ * FOR SAKE OF EXAMPLE APPLICATION, DELETE WHEN BEGIN BUILDING APP
+ *
+ *
+ *
+ *
+ */
+
+#site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: red;
+	z-index: 1;
+}
+
+#site-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: red;
+	z-index: 1;
+}
+
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+
+	i {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding-top: 400px;
+	}
+
+	&.page-home {
+		background: green;
+	}
+
+	&.page-example {
+		background: yellow;
+	}
+}
