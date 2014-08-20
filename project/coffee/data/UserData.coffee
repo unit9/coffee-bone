@@ -1,3 +1,9 @@
+AbstractData    = require './AbstractData'
+Requester       = require '../utils/Requester'
+API             = require './API'
+UserStatusModel = require '../models/core/UserStatusModel'
+UserInfoModel   = require '../models/core/UserInfoModel'
+
 class UserData extends AbstractData
 
 	status   : null
@@ -107,3 +113,5 @@ class UserData extends AbstractData
 		window.location.href = @__NAMESPACE__().BASE_PATH
 
 		null
+
+module.exports = UserData

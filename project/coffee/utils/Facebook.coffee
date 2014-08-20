@@ -1,3 +1,6 @@
+$            = require 'jquery'
+AbstractData = require '../data/AbstractData'
+
 ###
 
 Facebook SDK wrapper - load asynchronously, some helper methods
@@ -14,7 +17,11 @@ class Facebook extends AbstractData
 
 	@load : =>
 
-		require [@url], @init
+		###
+		TO DO
+		include script loader with callback to :init
+		###
+		# require [@url], @init
 
 		null
 
@@ -81,3 +88,5 @@ class Facebook extends AbstractData
 			cb?(response)
 
 		null
+
+module.exports = Facebook

@@ -17,3 +17,5 @@ class ImageLoader
 			loaders.push ImageLoader.load(i).promise()
 
 		$.when.apply(null, loaders)
+
+module.exports = ImageLoader

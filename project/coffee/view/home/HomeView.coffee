@@ -1,3 +1,5 @@
+AbstractViewPage = require '../AbstractViewPage'
+
 class HomeView extends AbstractViewPage
 
 	template : 'page-home'
@@ -27,3 +29,5 @@ class HomeView extends AbstractViewPage
 		###
 
 		return null
+
+module.exports = HomeView

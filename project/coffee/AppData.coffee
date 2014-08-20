@@ -1,3 +1,7 @@
+AbstractData = require './data/AbstractData'
+Requester    = require './utils/Requester'
+API          = require './data/API'
+
 class AppData extends AbstractData
 
 	callback : null
@@ -48,3 +52,5 @@ class AppData extends AbstractData
 		@callback?()
 
 		null
+
+module.exports = AppData

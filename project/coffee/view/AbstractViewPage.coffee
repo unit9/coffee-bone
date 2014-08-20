@@ -1,3 +1,5 @@
+AbstractView = require './AbstractView'
+
 class AbstractViewPage extends AbstractView
 
 	_shown     : false
@@ -50,3 +52,5 @@ class AbstractViewPage extends AbstractView
 		@_listening = setting
 
 		null
+
+module.exports = AbstractViewPage

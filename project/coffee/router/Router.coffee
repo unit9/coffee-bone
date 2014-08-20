@@ -1,3 +1,5 @@
+Backbone = require 'backbone'
+
 class Router extends Backbone.Router
 
 	@EVENT_HASH_CHANGED : 'EVENT_HASH_CHANGED'
@@ -49,4 +51,6 @@ class Router extends Backbone.Router
 
 	__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = Router

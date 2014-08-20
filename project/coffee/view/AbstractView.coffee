@@ -1,3 +1,6 @@
+$        = require 'jquery'
+Backbone = require 'backbone'
+
 class AbstractView extends Backbone.View
 
 	el           : null
@@ -180,4 +183,6 @@ class AbstractView extends Backbone.View
 
 	__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = AbstractView

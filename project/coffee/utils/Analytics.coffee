@@ -1,3 +1,5 @@
+$ = require 'jquery'
+
 ###
 Analytics wrapper
 ###
@@ -51,3 +53,5 @@ class Analytics
                     , 2000
 
         null
+
+module.exports = Analytics

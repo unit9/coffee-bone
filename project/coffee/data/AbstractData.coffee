@@ -1,3 +1,6 @@
+Backbone = require 'backbone'
+_        = require 'underscore'
+
 class AbstractData
 
 	constructor : ->
@@ -8,4 +11,6 @@ class AbstractData
 
 	__NAMESPACE__ : =>
 
-        return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = AbstractData

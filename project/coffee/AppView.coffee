@@ -1,3 +1,11 @@
+$            = require 'jquery'
+AbstractView = require './view/AbstractView'
+Preloader    = require './view/base/Preloader'
+Header       = require './view/base/Header'
+Wrapper      = require './view/base/Wrapper'
+Footer       = require './view/base/Footer'
+ModalManager = require './view/modals/_ModalManager'
+
 class AppView extends AbstractView
 
 	template : 'main'
@@ -154,3 +162,5 @@ class AppView extends AbstractView
 		###
 
 		null
+
+module.exports = AppView

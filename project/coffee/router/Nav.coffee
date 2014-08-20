@@ -1,3 +1,6 @@
+AbstractView = require '../view/AbstractView'
+Router       = require './Router'
+
 class Nav extends AbstractView
 
     @EVENT_CHANGE_VIEW     : 'EVENT_CHANGE_VIEW'
@@ -53,3 +56,5 @@ class Nav extends AbstractView
         if window.document.title isnt title then window.document.title = title
 
         null
+
+module.exports = Nav

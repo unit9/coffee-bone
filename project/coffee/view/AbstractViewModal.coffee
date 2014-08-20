@@ -1,3 +1,5 @@
+AbstractView = require './AbstractView'
+
 class AbstractViewModal extends AbstractView
 
 	_shown     : false
@@ -10,7 +12,7 @@ class AbstractViewModal extends AbstractView
 		return unless !@_shown
 		@_shown = true
 
-		@brz().appView.wrapper.addChild @
+		@__NAMESPACE__().appView.wrapper.addChild @
 
 		@animateIn cb
 
@@ -49,7 +51,7 @@ class AbstractViewModal extends AbstractView
 
 	close : =>
 
-		@brz().router.navigateTo @brz().appView.wrapper.backgroundView.route
+		@__NAMESPACE__().router.navigateTo @__NAMESPACE__().appView.wrapper.backgroundView.route
 
 		null
 
@@ -67,13 +69,13 @@ class AbstractViewModal extends AbstractView
 
 		cb?()
 
-		@brz().appView.modalPlayBtn.show()
+		@__NAMESPACE__().appView.modalPlayBtn.show()
 
 		null
 
 	animateOut : (cb) =>
 
-		@brz().appView.modalPlayBtn.hide()
+		@__NAMESPACE__().appView.modalPlayBtn.hide()
 
 		TweenLite.to @$el, @TRANSITION_TIME, { 'transform': @CSSTranslate(-50, -55), 'opacity': 0, ease : Cubic.easeInOut, onComplete : @animateOutDone, onCompleteParams : [cb] }
 
@@ -83,8 +85,10 @@ class AbstractViewModal extends AbstractView
 
 		@$el.css 'visibility' : 'hidden'
 
-		@brz().appView.wrapper.remove @
+		@__NAMESPACE__().appView.wrapper.remove @
 
 		cb?()
 
 		null
+
+module.exports = AbstractViewModal
