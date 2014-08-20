@@ -11,9 +11,6 @@
     "type" : "git",
     "url"  : "https://github.com/unit9/coffee-bone"
   },
-  "browser": {
-    "underscore": "backbone/node_modules/underscore"
-  },
   "browserify": {
     "transform": [
       "browserify-shim",
@@ -44,11 +41,11 @@
     "pretty-hrtime": "~0.2.1",
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
-    "watchify": "~0.10.1",
-    "underscore": "~1.6.0"
+    "watchify": "~0.10.1"
   },
   "dependencies": {
     "backbone": "~1.1.2",
+    "underscore": "~1.6.0",
     "jquery": "~2.1.0"
   }
 }
