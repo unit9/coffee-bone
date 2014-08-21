@@ -8,6 +8,7 @@
 
 var browserify   = require('browserify');
 var watchify     = require('watchify');
+var uglify       = require('gulp-uglify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
@@ -42,7 +43,18 @@ gulp.task('browserify', function() {
       // Specify the output destination
       .pipe(gulp.dest('./'+pkg.folders.dest+'/js/'))
       // Log when bundling completes!
-      .on('end', bundleLogger.end);
+      .on('end', function() {
+
+        if(global.isWatching) {
+          bundleLogger.end()
+        } else {
+          gulp.src(pkg.folders.dest+'/js/main.js')
+            .pipe(uglify())
+            .pipe(gulp.dest(pkg.folders.dest+'/js'))
+            .on('end', bundleLogger.end);
+        }
+
+      });
   };
 
   if(global.isWatching) {
