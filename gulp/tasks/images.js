@@ -1,12 +1,13 @@
-var changed    = require('gulp-changed');
-var gulp       = require('gulp');
-var imagemin   = require('gulp-imagemin');
+var changed  = require('gulp-changed');
+var gulp     = require('gulp');
+var imagemin = require('gulp-imagemin');
+var pkg      = require('../../package.json')
 
 gulp.task('images', function() {
-  var dest = './build/images';
+  var dest = pkg.folders.dest+'/static/img';
 
-  return gulp.src('./src/images/**')
-    .pipe(changed(dest)) // Ignore unchanged files
-    .pipe(imagemin()) // Optimize
+  return gulp.src(pkg.folders.src+'/img/**')
+    .pipe(changed(dest))
+    .pipe(imagemin())
     .pipe(gulp.dest(dest));
 });

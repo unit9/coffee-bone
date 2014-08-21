@@ -202,7 +202,9 @@ button[disabled], input[disabled] {
   cursor: default; }
 
 input[type="checkbox"], input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0; }
 
 input[type="search"] {
@@ -379,7 +381,9 @@ button {
   background: none; }
 
 *, *:before, *:after {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
 
 html {
   margin: 0;
@@ -412,7 +416,9 @@ input, button, textarea {
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
   background: none;
-  border-radius: 0; }
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0; }
   input.placeholder, button.placeholder, textarea.placeholder {
     color: #aaa; }
 
