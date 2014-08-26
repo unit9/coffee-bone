@@ -1,7 +1,7 @@
 {
   "name" : "coffee-bone",
   "version" : "0.0.1",
-  "description" : "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Grunt",
+  "description" : "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Gulp + Browserify",
   "license" : "BSD",
   "folders" : {
     "dest" : "website",
