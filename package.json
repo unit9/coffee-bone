@@ -45,7 +45,8 @@
     "pretty-hrtime": "~0.2.1",
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
-    "watchify": "~0.10.1"
+    "watchify": "~0.10.1",
+    "gulp-strip-debug" : "~1.0.0"
   },
   "dependencies": {
     "backbone": "~1.1.2",

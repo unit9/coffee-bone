@@ -6,13 +6,14 @@
    of browserify for faster bundling using caching.
 */
 
+var gulp         = require('gulp');
 var browserify   = require('browserify');
 var watchify     = require('watchify');
 var uglify       = require('gulp-uglify');
-var bundleLogger = require('../util/bundleLogger');
-var gulp         = require('gulp');
-var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
+var stripDebug   = require('gulp-strip-debug');
+var bundleLogger = require('../util/bundleLogger');
+var handleErrors = require('../util/handleErrors');
 var pkg          = require('../../package.json')
 
 gulp.task('browserify', function() {
@@ -49,6 +50,7 @@ gulp.task('browserify', function() {
           bundleLogger.end()
         } else {
           gulp.src(pkg.folders.dest+'/js/main.js')
+            .pipe(stripDebug())
             .pipe(uglify())
             .pipe(gulp.dest(pkg.folders.dest+'/js'))
             .on('end', bundleLogger.end);
