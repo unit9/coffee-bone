@@ -5,9 +5,10 @@
 */
 
 var gulp = require('gulp');
+var pkg  = require('../../package.json');
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
-  gulp.watch('src/sass/**', ['sass']);
-  // gulp.watch('src/images/**', ['images']);
-  // gulp.watch('src/htdocs/**', ['markup']);
+  gulp.watch(pkg.folders.src+'/sass/**', ['sass']);
+  gulp.watch(pkg.folders.dest+'/images/**', ['images']);
+  gulp.watch(pkg.folders.src+'/data/templates.xml', ['xmlMin']);
 });
