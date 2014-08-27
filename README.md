@@ -31,8 +31,8 @@ Although it technically works "out of the box" (*-ish*), really requires some co
 	* Combine media queries
 	* Minify CSS
 	* Minify XML templates
-	* Concatenate vendor JS *-- TO DO*
-	* Uglify JS (vendor + main application JS) *-- TO DO currently only application JS*
+	* Concatenate vendor JS
+	* Uglify JS (vendor + main application JS)
 	* Custom modernizr build based on refs used through app *-- TO DO*
 	* Iconizr *-- TO DO*
 
