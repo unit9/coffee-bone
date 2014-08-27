@@ -1,6 +1,3 @@
-Backbone = require 'backbone'
-_        = require 'underscore'
-
 class AbstractData
 
 	constructor : ->

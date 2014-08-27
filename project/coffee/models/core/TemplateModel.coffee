@@ -1,5 +1,3 @@
-Backbone = require 'backbone'
-
 class TemplateModel extends Backbone.Model
 
 	defaults : 

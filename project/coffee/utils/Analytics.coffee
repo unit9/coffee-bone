@@ -1,5 +1,3 @@
-$ = require 'jquery'
-
 ###
 Analytics wrapper
 ###

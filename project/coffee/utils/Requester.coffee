@@ -1,5 +1,3 @@
-$ = require 'jquery'
-
 ###
 # Requester #
 

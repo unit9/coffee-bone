@@ -1,4 +1,3 @@
-$             = require 'jquery'
 APIRouteModel = require '../models/core/APIRouteModel'
 
 class API

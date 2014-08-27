@@ -1,4 +1,3 @@
-$            = require 'jquery'
 AbstractData = require '../data/AbstractData'
 Facebook     = require '../utils/Facebook'
 GooglePlus   = require '../utils/GooglePlus'

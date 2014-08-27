@@ -1,4 +1,3 @@
-Backbone      = require 'backbone'
 TemplateModel = require '../../models/core/TemplateModel'
 
 class TemplatesCollection extends Backbone.Collection

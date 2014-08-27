@@ -1,4 +1,3 @@
-$                   = require 'jquery'
 TemplateModel       = require '../models/core/TemplateModel'
 TemplatesCollection = require '../collections/core/TemplatesCollection'
 

@@ -1,6 +1,3 @@
-Backbone  = require 'backbone'
-DeepModel = require 'backbone-deep-model'
-
 class AbstractModel extends Backbone.DeepModel
 
 	constructor : (attrs, option) ->

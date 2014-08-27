@@ -1,4 +1,3 @@
-$            = require 'jquery'
 LocalesModel = require '../models/core/LocalesModel'
 API          = require '../data/API'
 

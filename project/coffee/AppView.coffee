@@ -1,4 +1,3 @@
-$            = require 'jquery'
 AbstractView = require './view/AbstractView'
 Preloader    = require './view/base/Preloader'
 Header       = require './view/base/Header'

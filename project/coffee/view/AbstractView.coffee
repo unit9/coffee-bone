@@ -1,6 +1,3 @@
-$        = require 'jquery'
-Backbone = require 'backbone'
-
 class AbstractView extends Backbone.View
 
 	el           : null

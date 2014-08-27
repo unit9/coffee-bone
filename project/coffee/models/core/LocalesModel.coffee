@@ -1,5 +1,3 @@
-Backbone = require 'backbone'
-
 class LocalesModel extends Backbone.Model
 
     defaults :

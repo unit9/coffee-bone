@@ -1,8 +1,3 @@
-window.$        = require 'jquery'
-window.Backbone = require 'backbone'
-window._        = require 'underscore'
-Backbone.$      = $
-
 App = require './App'
 
 # PRODUCTION ENVIRONMENT - may want to use server-set variables here
