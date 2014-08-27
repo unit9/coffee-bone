@@ -27,6 +27,7 @@
     }
   },
   "devDependencies": {
+    "walk": "~2.3.3",
     "coffee-script": "1.7.1",
     "backbone-deep-model": "git://github.com/neilcarpenter/backbone-deep-model.git",
     "browser-sync": "~0.8.2",
