@@ -6,7 +6,7 @@ var pkg    = require('../../package.json');
 
 gulp.task('vendor', function() {
 
-	source = []
+	var source = []
 	for (key in pkg.vendor)
 		source.push(pkg.folders.vendor +"/"+ pkg.vendor[key]);
 
