@@ -9,16 +9,6 @@ class NumberUtils
     @limit:(number, min, max)->
         return Math.min( Math.max(min,number), max )
 
-    @map : (num, min1, max1, min2, max2, round = false, constrainMin = true, constrainMax = true) ->
-            if constrainMin and num < min1 then return min2
-            if constrainMax and num > max1 then return max2
-            
-            num1 = (num - min1) / (max1 - min1)
-            num2 = (num1 * (max2 - min2)) + min2
-            if round
-                return Math.round(num2)
-            return num2
-
     @getRandomColor: ->
 
         letters = '0123456789ABCDEF'.split('')
