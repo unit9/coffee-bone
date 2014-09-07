@@ -12,4 +12,5 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(pkg.folders.src+'/img/**', ['images']);
   gulp.watch(pkg.folders.src+'/data/templates.xml', ['xmlMin']);
   gulp.watch(pkg.folders.src+'/vendor/**', ['vendor']);
+  gulp.watch(pkg.folders.src+'/html/**', ['html']);
 });

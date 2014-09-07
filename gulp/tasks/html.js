@@ -3,16 +3,16 @@ var gutil   = require('gulp-util');
 var replace = require('gulp-replace');
 var pkg     = require('../../package.json');
 
-gulp.task('rev', function () {
+gulp.task('html', function () {
 
-	// supplant index from src with manifest, pipe to dest
 	var manifest = {};
 
+	// use versioned assets if going to production, otherwise use default paths
 	if (!global.isWatching) {
 		try {
 			manifest = require('../../rev-manifest.json');
 		} catch (e) {
-			gutil.log('\'' + gutil.colors.cyan('rev') + '\' - no manifest, using defaults');
+			gutil.log('\'' + gutil.colors.cyan('html') + '\' - no manifest, using defaults');
 		}
 	}
 

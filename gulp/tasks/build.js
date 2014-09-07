@@ -6,7 +6,7 @@ gulp.task('build', function() {
 	var args = [
 		'unrevAssets',
 		['browserify', 'sass', 'vendor', 'images', 'xmlMin'],
-		'rev',
+		'html',
 	];
 
 	if (!global.isWatching) {
