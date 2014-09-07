@@ -44,7 +44,9 @@
     "gulp-rev": "^1.1.0",
     "gulp-rename": "^1.2.0",
     "gulp-rimraf" : "^0.1.0",
-    "gulp-filter": "^1.0.1"
+    "gulp-filter": "^1.0.1",
+    "run-sequence": "^0.3.6",
+    "gulp-replace": "^0.4.0"
   },
   "vendor": {
     "jquery": "jquery-2.1.0.js",
