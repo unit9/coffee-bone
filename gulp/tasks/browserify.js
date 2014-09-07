@@ -11,6 +11,8 @@ var browserify   = require('browserify');
 var watchify     = require('watchify');
 var uglify       = require('gulp-uglify');
 var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
+var gutil        = require('gulp-util');
 var stripDebug   = require('gulp-strip-debug');
 var bundleLogger = require('../util/bundleLogger');
 var handleErrors = require('../util/handleErrors');
@@ -44,23 +46,16 @@ gulp.task('browserify', function() {
       // desired output filename here.
       .pipe(source('main.js'))
 
+			// if not watching, prepare for production
+      .pipe(buffer())
+      .pipe(global.isWatching ? gutil.noop() : stripDebug())
+			.pipe(global.isWatching ? gutil.noop() : uglify())
+
       // Specify the output destination
       .pipe(gulp.dest('./'+pkg.folders.dest+'/js/'))
 
       // Log when bundling completes!
-      .on('end', function() {
-
-        if(global.isWatching) {
-          bundleLogger.end()
-        } else {
-          gulp.src(pkg.folders.dest+'/js/main.js')
-            .pipe(stripDebug())
-            .pipe(uglify())
-            .pipe(gulp.dest(pkg.folders.dest+'/js'))
-            .on('end', bundleLogger.end);
-        }
-
-      });
+      .on('end', bundleLogger.end);
   };
 
   if(global.isWatching) {

@@ -4,9 +4,9 @@ var runSequence = require('run-sequence');
 gulp.task('build', function() {
 
 	var args = [
-		['browserify', 'sass', 'vendor', 'images', 'xmlMin'],
 		'unrevAssets',
-		'rev'
+		['browserify', 'sass', 'vendor', 'images', 'xmlMin'],
+		'rev',
 	];
 
 	if (!global.isWatching) {

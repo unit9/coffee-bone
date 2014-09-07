@@ -35,6 +35,7 @@
     "gulp-pretty-data": "~0.1.1",
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
+    "vinyl-buffer": "^0.0.0",
     "watchify": "~0.10.1",
     "gulp-strip-debug": "~1.0.0",
     "gulp-combine-media-queries": "~0.1.0",
