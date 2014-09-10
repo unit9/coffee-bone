@@ -1,7 +1,10 @@
-var gulp    = require('gulp');
-var gutil   = require('gulp-util');
-var replace = require('gulp-replace');
-var pkg     = require('../../package.json');
+var gulp         = require('gulp');
+var gutil        = require('gulp-util');
+var replace      = require('gulp-replace');
+var minifyHTML   = require('gulp-minify-html');
+var minifyInline = require('gulp-minify-inline');
+var gutil        = require('gulp-util');
+var pkg          = require('../../package.json');
 
 gulp.task('html', function () {
 
@@ -21,6 +24,8 @@ gulp.task('html', function () {
 			var r = manifest[b];
 			return r && (typeof r === 'string' || typeof r === 'number') ? r : b;
 		}))
+		.pipe(global.isWatching ? gutil.noop() : minifyInline())
+		.pipe(global.isWatching ? gutil.noop() : minifyHTML())
 		.pipe(gulp.dest(pkg.folders.dest));
 
 });
