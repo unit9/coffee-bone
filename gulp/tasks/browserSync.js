@@ -10,9 +10,13 @@ gulp.task('browserSync', ['build'], function() {
       baseDir: [pkg.folders.src, pkg.folders.dest],
       middleware: function (req, res, next) {
 
+        var filePath = req.url.split("?");
+
         // static route for pushstate
-        var exists = fs.existsSync(process.cwd() + "/" + pkg.folders.dest + req.url);
+        var exists = fs.existsSync(process.cwd() + "/" + pkg.folders.dest + filePath[0]);
         if(req.url == "/" || !exists) req.url = "/index.html";
+
+        if(filePath.length > 1) req.url += filePath[1];
 
         next();
       }
