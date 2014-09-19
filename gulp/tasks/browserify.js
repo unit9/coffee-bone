@@ -22,7 +22,7 @@ gulp.task('browserify', function() {
 
   var bundler = browserify({
     // Required watchify args
-    cache: {}, packageCache: {}, fullPaths: true,
+    cache: {}, packageCache: {}, fullPaths: false,
     // Browserify Options
     entries: ['./'+pkg.folders.src+'/coffee/Main.coffee'],
     // Add file extensions to make optional in your requires
