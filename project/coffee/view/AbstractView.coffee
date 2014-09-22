@@ -180,4 +180,6 @@ class AbstractView extends Backbone.View
 
 	__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = AbstractView

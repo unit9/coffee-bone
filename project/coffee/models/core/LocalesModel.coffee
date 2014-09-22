@@ -12,3 +12,5 @@ class LocalesModel extends Backbone.Model
         ((return e if(a is id)) for a, e of v['strings']) for k, v of @get('strings')
         console.warn "Locales -> not found string: #{id}"
         null
+
+module.exports = LocalesModel

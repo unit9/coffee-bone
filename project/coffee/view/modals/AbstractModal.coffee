@@ -1,3 +1,5 @@
+AbstractView = require '../AbstractView'
+
 class AbstractModal extends AbstractView
 
 	$window : null
@@ -65,3 +67,5 @@ class AbstractModal extends AbstractView
 		@hide()
 
 		null
+
+module.exports = AbstractModal

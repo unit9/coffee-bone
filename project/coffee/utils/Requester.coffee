@@ -35,27 +35,6 @@ class Requester
         
         r
 
-    @send: (url, params) =>
-        ###
-            POST shortcut
-        ###
-
-        formData = new FormData
-
-        for key, value of params
-            formData.append key, value
-
-        xhr = new XMLHttpRequest
-        
-        xhr.open "POST", url, true
-
-        xhr.onload = (e) =>
-            console.log e
-
-        xhr.send formData
-        null
-
-
     @addImage : (data, done, fail) =>
         ###
         ** Usage: <br>
@@ -81,3 +60,5 @@ class Requester
             fail   : fail
 
         null
+
+module.exports = Requester

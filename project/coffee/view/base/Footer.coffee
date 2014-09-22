@@ -1,3 +1,5 @@
+AbstractView = require '../AbstractView'
+
 class Footer extends AbstractView
 
     template : 'site-footer'
@@ -10,3 +12,5 @@ class Footer extends AbstractView
         super()
 
         return null
+
+module.exports = Footer

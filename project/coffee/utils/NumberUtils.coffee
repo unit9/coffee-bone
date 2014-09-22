@@ -75,3 +75,5 @@ class NumberUtils
 
             km = (metres/1000).toFixed(2)
             return "#{km}KM"
+
+module.exports = NumberUtils

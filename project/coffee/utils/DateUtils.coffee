@@ -10,3 +10,5 @@ class DateUtils
 		timestamp = d.getTime() + 10800000 + dayCorrection * 86400000
 
 		return new Date timestamp
+
+module.exports = DateUtils

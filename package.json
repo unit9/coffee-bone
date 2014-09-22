@@ -1,43 +1,64 @@
 {
-	"name" : "coffee-bone",
-	"version" : "0.0.1",
-	"description" : "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Grunt",
-	"main" : "Gruntfile.coffee",
-	"author" : "",
-	"license" : "BSD",
-	"folders" : {
-		"bin"    : "website",
-		"src"    : "project",
-		"static" : "static"
-	},
-	"repository" : {
-		"type" : "git",
-		"url"  : "https://github.com/neilcarpenter/coffee-bone"
-	},
-	"dependencies" : {
-		"grunt" : "~0.4.1"
-	},
-	"devDependencies" : {
-		"walk"                        : "~2.3.3",
-		"grunt-contrib-uglify"        : "~0.2.2",
-		"grunt-contrib-watch"         : "~0.4.4",
-		"grunt-contrib-coffee"        : "~0.8.2",
-		"grunt-contrib-clean"         : "~0.4.1",
-		"grunt-contrib-concat"        : "~0.3.0",
-		"grunt-contrib-connect"       : "~0.8.0",
-		"grunt-contrib-sass"          : "~0.5.0",
-		"grunt-contrib-cssmin"        : "~0.8.0",
-		"grunt-contrib-copy"          : "~0.4.1",
-		"grunt-modernizr"             : "~0.3.0",
-		"grunt-coffee-percolator-v2"  : "~0.2.2",
-		"grunt-autoprefixer"          : "~0.4.0",
-		"grunt-xmlmin"                : "~0.1.1",
-		"grunt-iconizr-php"           : "~0.1.1",
-		"grunt-combine-media-queries" : "~1.0.15",
-		"grunt-remove-logging"        : "~0.2.0",
-		"grunt-shell"                 : "~0.7.0"
-	},
-	"engines" : {
-		"node" : ">=0.8"
-	}
+  "name": "coffee-bone",
+  "version": "0.0.1",
+  "description": "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Gulp + Browserify",
+  "license": "BSD",
+  "folders": {
+    "dest": "website",
+    "src": "project",
+    "vendor": "project/vendor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unit9/coffee-bone"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
+  "devDependencies": {
+    "walk": "~2.3.3",
+    "coffee-script": "1.7.1",
+    "browser-sync": "~0.8.2",
+    "browserify": "~3.36.0",
+    "coffeeify": "~0.6.0",
+    "gulp": "^3.8.0",
+    "gulp-changed": "^0.4.1",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-notify": "^1.4.2",
+    "gulp-sass": "^0.7.1",
+    "gulp-autoprefixer": "~0.0.8",
+    "gulp-minify-css": "~0.3.7",
+    "gulp-util": "^3.0.0",
+    "gulp-uglify": "~0.3.1",
+    "gulp-pretty-data": "~0.1.1",
+    "require-dir": "^0.1.0",
+    "vinyl-source-stream": "~0.1.1",
+    "vinyl-buffer": "^0.0.0",
+    "watchify": "~0.10.1",
+    "gulp-strip-debug": "~1.0.0",
+    "gulp-combine-media-queries": "~0.1.0",
+    "gulp-concat": "^2.3.4",
+    "pretty-hrtime": "^0.2.1",
+    "imagemin-pngcrush": "^0.1.0",
+    "gulp-rev": "^1.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf" : "^0.1.0",
+    "gulp-filter": "^1.0.1",
+    "run-sequence": "^0.3.6",
+    "gulp-replace": "^0.4.0",
+    "gulp-minify-html": "~0.1.5",
+    "gulp-minify-inline": "~0.0.1"
+  },
+  "vendor": {
+    "jquery": "jquery-2.1.0.js",
+    "underscore": "underscore-1.5.2.js",
+    "backbone": "backbone-1.1.0.js",
+    "backbone-deep-model": "backbone-deep-model.js",
+    "plugins": "plugins.js",
+    "tweenlite": "TweenLite.js",
+    "css-plugin": "CSSPlugin.js",
+    "easepack": "EasePack.js"
+  }
 }

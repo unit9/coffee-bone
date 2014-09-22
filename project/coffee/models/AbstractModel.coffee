@@ -22,4 +22,6 @@ class AbstractModel extends Backbone.DeepModel
 
 	__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = AbstractModel

@@ -1,3 +1,5 @@
+AbstractView = require '../AbstractView'
+
 class Preloader extends AbstractView
 	
 	cb              : null
@@ -40,3 +42,5 @@ class Preloader extends AbstractView
 		@cb?()
 
 		null
+
+module.exports = Preloader

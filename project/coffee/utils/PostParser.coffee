@@ -50,3 +50,5 @@ class PostParser
 
     @_getPostType: ( post ) =>
         if /instagram/.test post.source then 'instagram' else 'twitter'
+
+module.exports = PostParser

@@ -13,3 +13,5 @@ class APIRouteModel extends Backbone.DeepModel
 			update     : "{{ BASE_PATH }}/api/user/update"
 			logout     : "{{ BASE_PATH }}/api/user/logout"
 			remove     : "{{ BASE_PATH }}/api/user/remove"
+
+module.exports = APIRouteModel

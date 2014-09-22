@@ -1,3 +1,5 @@
+APIRouteModel = require '../models/core/APIRouteModel'
+
 class API
 
 	@model : new APIRouteModel
@@ -20,4 +22,6 @@ class API
 
 	@__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = API

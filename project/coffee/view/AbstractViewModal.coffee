@@ -1,3 +1,5 @@
+AbstractView = require './AbstractView'
+
 class AbstractViewModal extends AbstractView
 
 	_shown     : false
@@ -88,3 +90,5 @@ class AbstractViewModal extends AbstractView
 		cb?()
 
 		null
+
+module.exports = AbstractViewModal

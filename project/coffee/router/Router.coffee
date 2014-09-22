@@ -49,4 +49,6 @@ class Router extends Backbone.Router
 
 	__NAMESPACE__ : =>
 
-		return view.__NAMESPACE__
+		return window.__NAMESPACE__
+
+module.exports = Router

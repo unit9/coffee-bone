@@ -1,3 +1,6 @@
+LocalesModel = require '../models/core/LocalesModel'
+API          = require '../data/API'
+
 ###
 # Locale Loader #
 
@@ -84,3 +87,5 @@ class Locale
     getLocaleImage : (url) =>
 
         return window.config.CDN + "/images/locale/" + window.config.localeCode + "/" + url
+
+module.exports = Locale

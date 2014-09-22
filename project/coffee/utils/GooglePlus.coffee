@@ -1,3 +1,5 @@
+AbstractData = require '../data/AbstractData'
+
 ###
 
 Google+ SDK wrapper - load asynchronously, some helper methods
@@ -18,7 +20,11 @@ class GooglePlus extends AbstractData
 
 	@load : =>
 
-		require [@url], @init
+		###
+		TO DO
+		include script loader with callback to :init
+		###
+		# require [@url], @init
 
 		null
 
@@ -66,3 +72,5 @@ class GooglePlus extends AbstractData
 				@$dataDfd.resolve userData
 
 		null
+
+module.exports = GooglePlus

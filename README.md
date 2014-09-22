@@ -1,6 +1,6 @@
 # Coffee-bone
 
-Boilerplate for single page app built on CoffeeScript, Backbone, Sass, Grunt, amongst other things...
+Boilerplate for single page app built on CoffeeScript, Backbone, Sass, Gulp, Browserify, amongst other things...
 
 Although it technically works "out of the box" (*-ish*), really requires some configuration, and probably contains a lot of extra crap you don't need.
 
@@ -10,29 +10,34 @@ Although it technically works "out of the box" (*-ish*), really requires some co
 2. `$ cd [DIR NAME]`
 3. `$ npm install`
 4. `$ node install.js [APP NAMESPACE]` *optional - just namespaces app in all coffee files*
-5. `$ grunt`
-6. `$ grunt connect:keepalive`
+5. `$ gulp`
 
-### Grunt tasks
+### Gulp tasks
 
-* `$ grunt` - *pre-deploy build*
-	* Coffee percolator (compilation)
+* `$ gulp` - *development mode*
+	* Watchify (browserify)
+	* Compile Sass
+	* Autoprefix CSS
+	* Minify XML templates
+	* Optimise images
+	* BrowserSync (local server)
+	* + watch for changes in `.coffee`, `.scss`, `templates.xml` and images, trigger repeat
+
+* `$ gulp build` - *pre-deploy build*
+	* Browserify
 	* Remove `console.log`s
 	* Compile Sass
-	* Autoprefix css
+	* Autoprefix CSS
 	* Combine media queries
 	* Minify CSS
+	* Minify XML templates
 	* Concatenate vendor JS
 	* Uglify JS (vendor + main application JS)
-	* Custom modernizr build based on refs used through app
-	* Minify XML templates
+	* Custom modernizr build based on refs used through app *-- TO DO*
+	* Iconizr *-- TO DO*
 
-Others:
-* `$ grunt w` - dev build: compile sass / coffee, watch for changes, start local server
-* `$ grunt w:cs` / `$ grunt w:sass` - dev builds: compile coffee / sass resptively and keep watching. Nice to keep these separate sometimes in interest of efficiency - no point recompiling sass when coffee has changed
-* `$ grunt v` - concat vendor JS
-* `$ grunt vmin` - concat vendor JS + uglify
-* `$ grunt icons` - Generate svg spritesheet + accompanying sass, integrate with app sass structure + static assets
+* Others:
+	* *Check `/gulp/tasks` - each file corresponds to an individual gulp task*
 
 ### General FE app structure notes
 
@@ -66,7 +71,6 @@ These come packaged in wrapper classes that load the SDKs asynchronously and hav
 ### Included JS libs
 
 * Backbone (+ jQuery + Underscore + Backbone DeepModel)
-* Require.js
 * TweenLite.js (+ CSSPlugin + EasePack)
 
 ### Sass

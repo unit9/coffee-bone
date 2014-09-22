@@ -51,3 +51,5 @@ class Analytics
                     , 2000
 
         null
+
+module.exports = Analytics

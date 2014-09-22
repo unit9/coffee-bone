@@ -1,9 +1,0 @@
-<?xml version="1.0"?><templates><template id="main"><![CDATA[
-            <div id="main"></div>
-        ]]></template><template id="wrapper"><![CDATA[
-            <div id="wrapper"><i>I am the main content area...</i></div>
-        ]]></template><template id="header"><![CDATA[
-            <header id="site-header"><i>I am the header...</i></header>
-        ]]></template><template id="footer"><![CDATA[
-            <footer id="site-footer"><i>I am the footer...</i></footer>
-        ]]></template></templates>

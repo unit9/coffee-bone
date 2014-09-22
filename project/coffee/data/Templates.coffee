@@ -1,3 +1,6 @@
+TemplateModel       = require '../models/core/TemplateModel'
+TemplatesCollection = require '../collections/core/TemplatesCollection'
+
 class Templates
 
     templates : null
@@ -33,3 +36,5 @@ class Templates
         t = t[0].get 'text'
         
         return $.trim t
+
+module.exports = Templates

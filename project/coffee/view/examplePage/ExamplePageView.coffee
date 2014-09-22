@@ -1,3 +1,5 @@
+AbstractViewPage = require '../AbstractViewPage'
+
 class ExamplePageView extends AbstractViewPage
 
 	template : 'page-example'
@@ -27,3 +29,5 @@ class ExamplePageView extends AbstractViewPage
 		###
 
 		return null
+
+module.exports = ExamplePageView

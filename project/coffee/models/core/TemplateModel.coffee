@@ -1,6 +1,8 @@
 class TemplateModel extends Backbone.Model
 
-    defaults : 
+	defaults : 
 
-        id   : ""
-        text : ""
+		id   : ""
+		text : ""
+
+module.exports = TemplateModel

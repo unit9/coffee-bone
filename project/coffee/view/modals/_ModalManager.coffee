@@ -1,3 +1,6 @@
+AbstractView     = require '../AbstractView'
+OrientationModal = require './OrientationModal'
+
 class ModalManager extends AbstractView
 
 	# when new modal classes are created, add here, with reference to class name
@@ -35,3 +38,5 @@ class ModalManager extends AbstractView
 		@modals[name].view = new @modals[name].classRef cb
 
 		null
+
+module.exports = ModalManager

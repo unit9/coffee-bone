@@ -1,3 +1,15 @@
+Analytics   = require './utils/Analytics'
+AuthManager = require './utils/AuthManager'
+Share       = require './utils/Share'
+Facebook    = require './utils/Facebook'
+GooglePlus  = require './utils/GooglePlus'
+Templates   = require './data/Templates'
+Locale      = require './data/Locale'
+Router      = require './router/Router'
+Nav         = require './router/Nav'
+AppData     = require './AppData'
+AppView     = require './AppView'
+
 class App
 
 	LIVE       : null
@@ -13,7 +25,7 @@ class App
 
 	setFlags : =>
 
-		ua = navigator.userAgent.toLowerCase()
+		ua = window.navigator.userAgent.toLowerCase()
 
 		@IS_ANDROID    = ua.indexOf('android') > -1
 		@IS_FIREFOX    = ua.indexOf('firefox') > -1
@@ -86,3 +98,5 @@ class App
 			delete @[fn]
 
 		null
+
+module.exports = App

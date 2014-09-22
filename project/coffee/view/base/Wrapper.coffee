@@ -1,3 +1,8 @@
+AbstractView    = require '../AbstractView'
+HomeView        = require '../home/HomeView'
+ExamplePageView = require '../examplePage/ExamplePageView'
+Nav             = require '../../router/Nav'
+
 class Wrapper extends AbstractView
 
 	VIEW_TYPE_PAGE  : 'page'
@@ -124,3 +129,5 @@ class Wrapper extends AbstractView
 			to.show()
 
 		null
+
+module.exports = Wrapper

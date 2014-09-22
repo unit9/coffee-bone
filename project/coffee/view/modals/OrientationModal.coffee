@@ -1,3 +1,5 @@
+AbstractModal = require './AbstractModal'
+
 class OrientationModal extends AbstractModal
 
 	name     : 'orientationModal'
@@ -39,3 +41,5 @@ class OrientationModal extends AbstractModal
 		if dims.o is 'portrait' then @hide false
 
 		null
+
+module.exports = OrientationModal
