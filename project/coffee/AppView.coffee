@@ -4,162 +4,160 @@ Header       = require './view/base/Header'
 Wrapper      = require './view/base/Wrapper'
 Footer       = require './view/base/Footer'
 ModalManager = require './view/modals/_ModalManager'
+MediaQueries = require './utils/MediaQueries'
 
 class AppView extends AbstractView
 
-	template : 'main'
+    template : 'main'
 
-	$window  : null
-	$body    : null
+    $window  : null
+    $body    : null
 
-	wrapper  : null
-	footer   : null
+    wrapper  : null
+    footer   : null
 
-	dims :
-		w : null
-		h : null
-		o : null
-		c : null
+    dims :
+        w : null
+        h : null
+        o : null
+        c : null
 
-	events :
-		'click a' : 'linkManager'
+    events :
+        'click a' : 'linkManager'
 
-	EVENT_UPDATE_DIMENSIONS : 'EVENT_UPDATE_DIMENSIONS'
+    EVENT_UPDATE_DIMENSIONS : 'EVENT_UPDATE_DIMENSIONS'
 
-	MOBILE_WIDTH : 700
-	MOBILE       : 'mobile'
-	NON_MOBILE   : 'non_mobile'
+    MOBILE_WIDTH : 700
+    MOBILE       : 'mobile'
+    NON_MOBILE   : 'non_mobile'
 
-	constructor : ->
+    constructor : ->
 
-		@$window = $(window)
-		@$body   = $('body').eq(0)
+        @$window = $(window)
+        @$body   = $('body').eq(0)
 
-		super()
+        super()
 
-		return null
+    disableTouch: =>
 
-	disableTouch: =>
+        @$window.on 'touchmove', @onTouchMove
+        return
 
-		@$window.on 'touchmove', @onTouchMove
+    enableTouch: =>
 
-		null
+        @$window.off 'touchmove', @onTouchMove
+        return
 
-	enableTouch: =>
+    onTouchMove: ( e ) ->
 
-		@$window.off 'touchmove', @onTouchMove
+        e.preventDefault()
+        return
 
-		null
+    render : =>
 
-	onTouchMove: ( e ) ->
+        @bindEvents()
 
-		e.preventDefault()
+        @preloader    = new Preloader
+        @modalManager = new ModalManager
 
-		null
+        @header  = new Header
+        @wrapper = new Wrapper
+        @footer  = new Footer
 
-	render : =>
+        @
+            .addChild @header
+            .addChild @wrapper
+            .addChild @footer
 
-		@bindEvents()
+        @onAllRendered()
+        return
 
-		@preloader    = new Preloader
-		@modalManager = new ModalManager
+    bindEvents : =>
 
-		@header  = new Header
-		@wrapper = new Wrapper
-		@footer  = new Footer
+        @on 'allRendered', @onAllRendered
 
-		@
-			.addChild @header
-			.addChild @wrapper
-			.addChild @footer
+        @onResize()
 
-		@onAllRendered()
+        @onResize = _.debounce @onResize, 300
+        @$window.on 'resize orientationchange', @onResize
+        return
 
-		null
+    onAllRendered : =>
 
-	bindEvents : =>
+        # console.log "onAllRendered : =>"
 
-		@on 'allRendered', @onAllRendered
+        @$body.prepend @$el
 
-		@onResize()
+        @begin()
+        return
 
-		@onResize = _.debounce @onResize, 300
-		@$window.on 'resize orientationchange', @onResize
+    begin : =>
 
-		null
+        @trigger 'start'
 
-	onAllRendered : =>
+        @__NAMESPACE__().router.start()
 
-		# console.log "onAllRendered : =>"
+        @preloader.hide()
+        @updateMediaQueriesLog()
+        return
 
-		@$body.prepend @$el
+    onResize : =>
 
-		@begin()
+        @getDims()
+        @updateMediaQueriesLog()
+        return
 
-		null
+    updateMediaQueriesLog : =>
 
-	begin : =>
+        if @header then @header.$el.find(".breakpoint").html "<div class='l'>CURRENT BREAKPOINT:</div><div class='b'>#{MediaQueries.getBreakpoint()}</div>"
+        return
 
-		@trigger 'start'
+    getDims : =>
 
-		@__NAMESPACE__().router.start()
+        w = window.innerWidth or document.documentElement.clientWidth or document.body.clientWidth
+        h = window.innerHeight or document.documentElement.clientHeight or document.body.clientHeight
 
-		@preloader.hide()
+        @dims =
+            w : w
+            h : h
+            o : if h > w then 'portrait' else 'landscape'
+            c : if w <= @MOBILE_WIDTH then @MOBILE else @NON_MOBILE
 
-		null
+        @trigger @EVENT_UPDATE_DIMENSIONS, @dims
 
-	onResize : =>
+        return
 
-		@getDims()
+    linkManager : (e) =>
 
-		null
+        href = $(e.currentTarget).attr('href')
 
-	getDims : =>
+        return false unless href
 
-		w = window.innerWidth or document.documentElement.clientWidth or document.body.clientWidth
-		h = window.innerHeight or document.documentElement.clientHeight or document.body.clientHeight
+        @navigateToUrl href, e
 
-		@dims =
-			w : w
-			h : h
-			o : if h > w then 'portrait' else 'landscape'
-			c : if w <= @MOBILE_WIDTH then @MOBILE else @NON_MOBILE
+        return
 
-		@trigger @EVENT_UPDATE_DIMENSIONS, @dims
+    navigateToUrl : ( href, e = null ) =>
 
-		null
+        route   = if href.match(@__NAMESPACE__().BASE_PATH) then href.split(@__NAMESPACE__().BASE_PATH)[1] else href
+        section = if route.indexOf('/') is 0 then route.split('/')[1] else route
 
-	linkManager : (e) =>
+        if @__NAMESPACE__().nav.getSection section
+            e?.preventDefault()
+            @__NAMESPACE__().router.navigateTo route
+        else 
+            @handleExternalLink href
 
-		href = $(e.currentTarget).attr('href')
+        return
 
-		return false unless href
+    handleExternalLink : (data) => 
 
-		@navigateToUrl href, e
+        ###
 
-		null
+        bind tracking events if necessary
 
-	navigateToUrl : ( href, e = null ) =>
+        ###
 
-		route   = if href.match(@__NAMESPACE__().BASE_PATH) then href.split(@__NAMESPACE__().BASE_PATH)[1] else href
-		section = if route.indexOf('/') is 0 then route.split('/')[1] else route
-
-		if @__NAMESPACE__().nav.getSection section
-			e?.preventDefault()
-			@__NAMESPACE__().router.navigateTo route
-		else 
-			@handleExternalLink href
-
-		null
-
-	handleExternalLink : (data) => 
-
-		###
-
-		bind tracking events if necessary
-
-		###
-
-		null
+        return
 
 module.exports = AppView

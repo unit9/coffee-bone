@@ -1,4 +1,10 @@
 /*
+ * VARIABLES
+ */
+
+@import 'globals';
+
+/*
  * HELPERS / MIXINS / LIBS / RESETS
  */
 
@@ -6,24 +12,21 @@
 @import 'utils/mixins';
 @import 'utils/normalise';
 @import 'utils/helpers';
-
-/*
- * VARIABLES
- */
-
-@import 'globals.scss';
+@import 'utils/retina';
+@import 'utils/responsive';
+@import 'utils/reset';
 
 /*
  * ICONS
  */
 
-@import 'icons.scss';
+@import 'icons';
 
 /*
  * FONTS
  */
 
-@import 'fonts.scss';
+@import 'fonts';
 
 /*
  * VENDORS
@@ -35,12 +38,9 @@
 
 @import 'core/core';
 
-
-
-
-
-
-
+/*
+ * VIEWS
+ */
 
 /*
  *
@@ -55,45 +55,73 @@
  */
 
 #site-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 10px;
-	background: red;
-	z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: red;
+    z-index: 1;
+    font-size: 12px;
+
+    .breakpoint
+    {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        
+        div
+        {
+            display: inline-block;
+            &.l
+            {
+                background: white;
+                color: black;
+                padding: 10px;
+            }
+            &.b
+            {
+                background: black;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 #site-footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 10px;
-	background: red;
-	z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: red;
+    z-index: 1;
+    font-size: 12px;
 }
 
 .page {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    font-size: 12px;
 
-	i {
-		display: block;
-		width: 100%;
-		text-align: center;
-		padding-top: 400px;
-	}
+    i {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding-top: 400px;
+    }
 
-	&.page-home {
-		background: green;
-	}
+    &.page-home {
+        background: green;
+    }
 
-	&.page-example {
-		background: yellow;
-	}
+    &.page-example {
+        background: yellow;
+    }
 }
