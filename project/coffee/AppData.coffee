@@ -4,53 +4,59 @@ API          = require './data/API'
 
 class AppData extends AbstractData
 
-	callback : null
+    callback : null
 
-	constructor : (@callback) ->
+    constructor : (@callback) ->
 
-		###
+        ###
 
-		add all data classes here
+        add all data classes here
 
-		###
+        ###
 
-		super()
+        super()
 
-		@getStartData()
+        @getStartData()
 
-		return null
+        return null
 
-	###
-	get app bootstrap data - embed in HTML or API endpoint
-	###
-	getStartData : =>
+    ###
+    get app bootstrap data - embed in HTML or API endpoint
+    ###
+    getStartData : =>
+        
+        if API.get('start')
 
-		r = Requester.request
-			url  : API.get('start')
-			type : 'GET'
+            r = Requester.request
+                url  : API.get('start')
+                type : 'GET'
 
-		r.done @onStartDataReceived
-		r.fail =>
+            r.done @onStartDataReceived
+            r.fail =>
 
-			# console.error "error loading api start data"
+                # console.error "error loading api start data"
 
-			###
-			this is only temporary, while there is no bootstrap data here, normally would handle error / fail
-			###
-			@callback?()
+                ###
+                this is only temporary, while there is no bootstrap data here, normally would handle error / fail
+                ###
+                @callback?()
 
-		null
+        else
 
-	onStartDataReceived : (data) =>
+            @callback?()
 
-		###
+        null
 
-		bootstrap data received, app ready to go
+    onStartDataReceived : (data) =>
 
-		###
+        ###
 
-		@callback?()
+        bootstrap data received, app ready to go
 
-		null
+        ###
+
+        @callback?()
+
+        null
 
 module.exports = AppData
