@@ -8,9 +8,10 @@ Although it technically works "out of the box" (*-ish*), really requires some co
 
 1. `$ cd [YOUR PROJECT FOLDER]`
 2. `$ npm install coffeebone`
-3. `$ node node_modules/coffeebone/move.js`
+3. `$ node node_modules/coffeebone/clean.js`
 4. `$ node install.js [APP NAMESPACE]` *optional - just namespaces app in all coffee files*
-5. `$ gulp`
+4. `$ npm install`
+6. `$ gulp`
 
 ### Install
 

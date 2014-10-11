@@ -32,7 +32,7 @@ function removeFile(file) {
     fs.unlink(file, function (err) {
 
         if (err) return console.log(err);
-        console.log('deleted file -- ' + file);
+        console.log('Cleaning: deleted file ' + file + '.');
 
     });
 
@@ -50,5 +50,4 @@ walker.on('end', function() {
 
     console.log('all done -- ' + refs + ' namespace references updated to "' + name + '" in ' + files + ' files');
     removeFile('./install.js');
-
 });
