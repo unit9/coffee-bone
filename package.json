@@ -1,18 +1,26 @@
 {
-  "name": "coffee-bone",
-  "version": "0.0.1",
-  "description": "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Gulp + Browserify",
-  "bugs": "https://github.com/unit9/coffee-bone/issues",
+  "name": "coffeebone",
+  "description": "Boilerplate for single-page applications using CoffeeScript, Backbone, SASS and Gulp + Browserify.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/unit9/coffee-bone",
+  "author": {
+    "name": "UNIT9 <developers@unit9.com> (http://www.unit9.com/)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unit9/coffee-bone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unit9/coffee-bone/issues"
+  },
   "license": "BSD",
-  "author": "UNIT9 <developers@unit9.com> (http://www.unit9.com/)",
+  "engines": {
+    "node": ">= 0.10.32"
+  },
   "folders": {
     "dest": "website",
     "src": "project",
     "vendor": "project/vendor"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unit9/coffee-bone"
   },
   "browserify": {
     "transform": [
@@ -61,5 +69,8 @@
     "tweenlite": "TweenLite.js",
     "css-plugin": "CSSPlugin.js",
     "easepack": "EasePack.js"
+  },
+  "dependencies": {
+    "ncp": "^1.0.1"
   }
 }
