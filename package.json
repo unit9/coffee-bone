@@ -1,16 +1,27 @@
+
 {
-  "name": "coffee-bone",
-  "version": "0.0.1",
-  "description": "SPA boilerplate ===> CoffeeScript <-> Backbone <-> Sass <-> Gulp + Browserify",
+  "name": "coffeebone",
+  "description": "Boilerplate for single-page applications using CoffeeScript, Backbone, SASS and Gulp + Browserify.",
+  "version": "1.5.4",
+  "homepage": "https://github.com/unit9/coffee-bone",
+  "author": {
+    "name": "UNIT9 <developers@unit9.com> (http://www.unit9.com/)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unit9/coffee-bone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unit9/coffee-bone/issues"
+  },
   "license": "BSD",
+  "engines": {
+    "node": ">= 0.10.32"
+  },
   "folders": {
     "dest": "website",
     "src": "project",
     "vendor": "project/vendor"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unit9/coffee-bone"
   },
   "browserify": {
     "transform": [
@@ -18,47 +29,50 @@
     ]
   },
   "devDependencies": {
-    "walk": "~2.3.3",
-    "coffee-script": "1.7.1",
-    "browser-sync": "~0.8.2",
-    "browserify": "~3.36.0",
-    "coffeeify": "~0.6.0",
-    "gulp": "^3.8.0",
-    "gulp-changed": "^0.4.1",
-    "gulp-imagemin": "^1.1.0",
-    "gulp-notify": "^1.4.2",
-    "gulp-sass": "^0.7.1",
-    "gulp-autoprefixer": "~0.0.8",
-    "gulp-minify-css": "~0.3.7",
-    "gulp-util": "^3.0.0",
-    "gulp-uglify": "~0.3.1",
-    "gulp-pretty-data": "~0.1.1",
-    "require-dir": "^0.1.0",
-    "vinyl-source-stream": "~0.1.1",
-    "vinyl-buffer": "^0.0.0",
-    "watchify": "~0.10.1",
-    "gulp-strip-debug": "~1.0.0",
+    "browser-sync": "~1.5.7",
+    "browserify": "~6.0.3",
+    "coffee-script": "1.8.0",
+    "coffeeify": "~0.7.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "~1.0.1",
+    "gulp-changed": "^1.0.0",
     "gulp-combine-media-queries": "~0.1.0",
-    "gulp-concat": "^2.3.4",
-    "pretty-hrtime": "^0.2.1",
-    "imagemin-pngcrush": "^3.0.1",
-    "gulp-rev": "^1.1.0",
+    "gulp-concat": "^2.4.1",
+    "gulp-filter": "^1.0.2",
+    "gulp-imagemin": "^1.1.0",
+    "gulp-minify-css": "~0.3.10",
+    "gulp-minify-html": "~0.1.6",
+    "gulp-minify-inline": "~0.1.0",
+    "gulp-notify": "^2.0.0",
+    "gulp-pretty-data": "~0.1.1",
     "gulp-rename": "^1.2.0",
-    "gulp-rimraf" : "^0.1.0",
-    "gulp-filter": "^1.0.1",
-    "run-sequence": "^0.3.6",
     "gulp-replace": "^0.4.0",
-    "gulp-minify-html": "~0.1.5",
-    "gulp-minify-inline": "~0.0.1"
+    "gulp-rev": "^1.1.0",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-sass": "^1.1.0",
+    "gulp-strip-debug": "~1.0.1",
+    "gulp-uglify": "~1.0.1",
+    "gulp-util": "^3.0.1",
+    "imagemin-pngcrush": "^3.0.1",
+    "pretty-hrtime": "^0.2.2",
+    "require-dir": "^0.1.0",
+    "run-sequence": "^1.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "~1.0.0",
+    "watchify": "~2.0.0"
   },
   "vendor": {
     "jquery": "jquery-2.1.0.js",
-    "underscore": "underscore-1.5.2.js",
-    "backbone": "backbone-1.1.0.js",
+    "underscore": "underscore.js",
+    "backbone": "backbone.js",
     "backbone-deep-model": "backbone-deep-model.js",
     "plugins": "plugins.js",
     "tweenlite": "TweenLite.js",
     "css-plugin": "CSSPlugin.js",
     "easepack": "EasePack.js"
+  },
+  "dependencies": {
+    "ncp": "^1.0.1",
+    "walk": "^2.3.4"
   }
 }

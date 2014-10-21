@@ -14,7 +14,7 @@ gulp.task('browserSync', ['build'], function() {
 
         // static route for pushstate
         var exists = fs.existsSync(process.cwd() + "/" + pkg.folders.dest + filePath[0]);
-        if(req.url == "/" || !exists) req.url = "/index.html";
+        if((req.url == "/" || !exists) && req.url.indexOf("browser-sync-client") == -1) req.url = "/index.html";
 
         if(filePath.length > 1) req.url += filePath[1];
 

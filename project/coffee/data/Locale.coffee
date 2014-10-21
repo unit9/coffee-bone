@@ -24,11 +24,17 @@ class Locale
 
         @lang = @getLang()
 
-        $.ajax
-            url     : API.get( 'locale', { code : @lang } )
-            type    : 'GET'
-            success : @onSuccess
-            error   : @loadBackup
+        if API.get('locale', { code : @lang })
+
+            $.ajax
+                url     : API.get( 'locale', { code : @lang } )
+                type    : 'GET'
+                success : @onSuccess
+                error   : @loadBackup
+
+        else
+
+            @loadBackup()
 
         null
             

@@ -29,6 +29,7 @@
                     <li><a href="<%= home.url %>"><%= home.label %></a></li>
                     <li><a href="<%= example.url %>"><%= example.label %></a></li>
                 </ul>
+                <div class="breakpoint"></div>
             </header>
         ]]>
     </template>

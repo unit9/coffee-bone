@@ -1,102 +1,105 @@
-Analytics   = require './utils/Analytics'
-AuthManager = require './utils/AuthManager'
-Share       = require './utils/Share'
-Facebook    = require './utils/Facebook'
-GooglePlus  = require './utils/GooglePlus'
-Templates   = require './data/Templates'
-Locale      = require './data/Locale'
-Router      = require './router/Router'
-Nav         = require './router/Nav'
-AppData     = require './AppData'
-AppView     = require './AppView'
+Analytics    = require './utils/Analytics'
+AuthManager  = require './utils/AuthManager'
+Share        = require './utils/Share'
+Facebook     = require './utils/Facebook'
+GooglePlus   = require './utils/GooglePlus'
+Templates    = require './data/Templates'
+Locale       = require './data/Locale'
+Router       = require './router/Router'
+Nav          = require './router/Nav'
+AppData      = require './AppData'
+AppView      = require './AppView'
+MediaQueries = require './utils/MediaQueries'
 
 class App
 
-	LIVE       : null
-	BASE_PATH  : window.config.hostname
-	localeCode : window.config.localeCode
-	objReady   : 0
+    LIVE       : null
+    BASE_PATH  : window.config.hostname
+    localeCode : window.config.localeCode
+    objReady   : 0
 
-	_toClean   : ['objReady', 'setFlags', 'objectComplete', 'init', 'initObjects', 'initSDKs', 'initApp', 'go', 'cleanup', '_toClean']
+    _toClean   : ['objReady', 'setFlags', 'objectComplete', 'init', 'initObjects', 'initSDKs', 'initApp', 'go', 'cleanup', '_toClean']
 
-	constructor : (@LIVE) ->
+    constructor : (@LIVE) ->
 
-		return null
+        return null
 
-	setFlags : =>
+    setFlags : =>
 
-		ua = window.navigator.userAgent.toLowerCase()
+        ua = window.navigator.userAgent.toLowerCase()
 
-		@IS_ANDROID    = ua.indexOf('android') > -1
-		@IS_FIREFOX    = ua.indexOf('firefox') > -1
-		@IS_CHROME_IOS = if ua.match('crios') then true else false # http://stackoverflow.com/a/13808053
+        MediaQueries.setup();
 
-		null
+        @IS_ANDROID    = ua.indexOf('android') > -1
+        @IS_FIREFOX    = ua.indexOf('firefox') > -1
+        @IS_CHROME_IOS = if ua.match('crios') then true else false # http://stackoverflow.com/a/13808053
 
-	objectComplete : =>
+        null
 
-		@objReady++
-		@initApp() if @objReady >= 4
+    objectComplete : =>
 
-		null
+        @objReady++
+        @initApp() if @objReady >= 4
 
-	init : =>
+        null
 
-		@initObjects()
+    init : =>
 
-		null
+        @initObjects()
 
-	initObjects : =>
+        null
 
-		@templates = new Templates "/data/templates#{(if @LIVE then '.min' else '')}.xml", @objectComplete
-		@locale    = new Locale "/data/locales/strings.json", @objectComplete
-		@analytics = new Analytics "/data/tracking.json", @objectComplete
-		@appData   = new AppData @objectComplete
+    initObjects : =>
 
-		# if new objects are added don't forget to change the `@objectComplete` function
+        @templates = new Templates "/data/templates#{(if @LIVE then '.min' else '')}.xml", @objectComplete
+        @locale    = new Locale "/data/locales/strings.json", @objectComplete
+        @analytics = new Analytics "/data/tracking.json", @objectComplete
+        @appData   = new AppData @objectComplete
 
-		null
+        # if new objects are added don't forget to change the `@objectComplete` function
 
-	initSDKs : =>
+        null
 
-		Facebook.load()
-		GooglePlus.load()
+    initSDKs : =>
 
-		null
+        Facebook.load()
+        GooglePlus.load()
 
-	initApp : =>
+        null
 
-		@setFlags()
+    initApp : =>
 
-		### Starts application ###
-		@appView = new AppView
-		@router  = new Router
-		@nav     = new Nav
-		@auth    = new AuthManager
-		@share   = new Share
+        @setFlags()
 
-		@go()
+        ### Starts application ###
+        @appView = new AppView
+        @router  = new Router
+        @nav     = new Nav
+        @auth    = new AuthManager
+        @share   = new Share
 
-		@initSDKs()
+        @go()
 
-		null
+        @initSDKs()
 
-	go : =>
+        null
 
-		### After everything is loaded, kicks off website ###
-		@appView.render()
+    go : =>
 
-		### remove redundant initialisation methods / properties ###
-		@cleanup()
+        ### After everything is loaded, kicks off website ###
+        @appView.render()
 
-		null
+        ### remove redundant initialisation methods / properties ###
+        @cleanup()
 
-	cleanup : =>
+        null
 
-		for fn in @_toClean
-			@[fn] = null
-			delete @[fn]
+    cleanup : =>
 
-		null
+        for fn in @_toClean
+            @[fn] = null
+            delete @[fn]
+
+        null
 
 module.exports = App
