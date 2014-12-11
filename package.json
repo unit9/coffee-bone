@@ -70,7 +70,8 @@
     "plugins": "plugins.js",
     "tweenlite": "TweenLite.js",
     "css-plugin": "CSSPlugin.js",
-    "easepack": "EasePack.js"
+    "easepack": "EasePack.js",
+    "script": "script.js"
   },
   "dependencies": {
     "ncp": "^1.0.1",
