@@ -18,8 +18,8 @@ class Wrapper extends AbstractView
 	constructor : ->
 
 		@views =
-			home        : classRef : HomeView,        route : @__NAMESPACE__().nav.sections.HOME,    view : null, type : @VIEW_TYPE_PAGE
-			quests      : classRef : ExamplePageView, route : @__NAMESPACE__().nav.sections.EXAMPLE, view : null, type : @VIEW_TYPE_PAGE
+			home    : classRef : HomeView,        route : @__NAMESPACE__().nav.sections.HOME,    view : null, type : @VIEW_TYPE_PAGE
+			example : classRef : ExamplePageView, route : @__NAMESPACE__().nav.sections.EXAMPLE, view : null, type : @VIEW_TYPE_PAGE
 
 		@createClasses()
 
