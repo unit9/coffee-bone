@@ -29,7 +29,7 @@
     ]
   },
   "devDependencies": {
-    "browser-sync": "~1.5.7",
+    "browser-sync": "~2.7.1",
     "browserify": "~6.0.3",
     "coffee-script": "1.8.0",
     "coffeeify": "~0.7.0",
